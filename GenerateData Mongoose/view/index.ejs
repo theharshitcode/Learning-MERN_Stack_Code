@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Data</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        width: 26vw;
+        place-self: center;
+        height: 50vh;
+        border: 2px solid black;
+        border-radius: 18px;
+    }
+
+    .content {
+        width: 90%;
+        height: 70%;
+        border-radius: 18px;
+        margin-top: 16px;
+        border: 2px solid grey;
+        place-self: center;
+    }
+
+    .main {
+        width: 70%;
+        /* border: 3px solid red; */
+        height: 15%;
+        margin-top: 10px;
+        place-self: center;
+
+    }
+
+    a {
+        text-decoration: none;
+        border: none;
+    }
+
+    #button {
+        width: 100%;
+        display: block;
+        height: 100%;
+        font-size: x-large;
+        font-weight: 600;
+        margin: auto;
+        border-radius: 18px;
+        border: none;
+
+
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="content" id="content"></div>
+        <div class="main">
+            <button id="button">Click Me</button>
+        </div>
+    </div>
+    <script>
+
+        let b = document.querySelector(".main").addEventListener("click", async () => {
+            console.log("yes")
+            let button = document.querySelector("#button");
+            button.addEventListener("click", async () => {
+                const response = await fetch("/generate");
+                const data = await response.json();
+                console.log(data); // shows the 10 employees in console
+            });
+
+
+        })
+
+    </script>
+</body>
+
+</html>
